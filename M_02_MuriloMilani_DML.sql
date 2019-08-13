@@ -8,6 +8,10 @@ Insert Into Categorias (NomeCategoria)
 					,('Guerra')
 					,('Policial');
 
+Insert into Categorias (NomeCategoria)
+	Values	('Terror')
+			,('Documentário')
+			,('Drama')
 					
 
 Insert Into Permissoes(NomePermissao)
@@ -33,6 +37,14 @@ Insert into Lancamentos(Titulo, IdCategoria , IdFormato, Sinopse, Duracao, DataL
 		,('Máquina Mortífera',6,1,'O cinquentenário Sargento Murtaugh (Damon Wayans, Sr.), da divisão de homicídios da polícia de Los Angeles, recebe um novo parceiro, o sargento Riggs (Clayne Crawford), da divisão de narcóticos da polícia do Texas, que começou a vida nas Forças Especiais do exército americano. Riggs é um jovem inconsequente, volátil e ligeiramente suicida que se mudou para Los Angeles para recomeçar a vida depois da morte de sua mulher e filho num acidente de carro, e não vai fazer bem ao coração frágil do quase aposentado Murtaugh.', 42, '21-09-2016')
 		,('How I Met Your Mother' ,3, 1 , 'Em 2030, o arquiteto Ted Mosby (Josh Radnor) conta a história sobre como conheceu a mãe dos seus filhos. Ele volta no tempo para 2005, relembrando suas aventuras amorosas em Nova York e a busca pela mulher dos seus sonhos. Ao longo do anos, Ted aproveita para falar a jornada dos seus amigos: o advogado Marshall Eriksen (Jason Segel), a professora Lily Aldrin (Alyson Hannigan), a jornalista Robin Scherbatsky (Cobie Smulders) e o mulherengo convicto Barney Stinson (Neil Patrick Harris).' ,22,'19-09-2005' )
 
+Insert into Lancamentos(Titulo, IdCategoria , IdFormato, Sinopse, Duracao, DataLancamento)
+	Values		('My Hero Academia Dois Heróis' , 1,1, 'Anime Night apresenta: Deku e All Might recebem um convite para a I-Expo, a principal exposição mundial de habilidades de Quirk e inovações tecnológicas dos heróis! Em meio à empolgação, patrocinadores e profissionais de todos os cantos, Deku conhece Melissa, uma garota que é Quirkless assim como ele já foi . De repente, o sistema de segurança mais avançado da I-Expo é hackeada por vilões, e um plano sinistro é iniciado. É uma séria ameaça à sociedade dos heróis, e um homem detém a chave para tudo isso - o símbolo da paz, All Might' ,96, '05-07-2018')
+
+
+	Insert into Lancamentos(Titulo, IdCategoria , IdFormato, Sinopse, Duracao, DataLancamento)
+	Values ('Homem-Aranha Longe de Casa' , 1,1, 'Peter Parker (Tom Holland) está em uma viagem de duas semanas pela Europa, ao lado de seus amigos de colégio, quando é surpreendido pela visita de Nick Fury (Samuel L. Jackson). Convocado para mais uma missão heróica, ele precisa enfrentar vários vilões que surgem em cidades-símbolo do continente, como Londres, Paris e Veneza, e também a aparição do enigmático Mysterio (Jake Gyllenhaal). ',130, '04-07-2019')
+			,('Annabelle 3 De Volta Para Casa',9,1, 'Quando Ed (Patrick Wilson) e Lorraine Warren (Vera Farmiga) deixam sua casa durante um fim de semana para investigar mais um caso paranormal, a filha do casal, a pequena Judy Warren (McKenna Grace), é deixada aos cuidados de sua babá (Madison Iseman). Mas as duas entram em perigo quando uma amiga delas invade a Sala dos Artefatos dos Warren e abre a cristaleira onde a maligna boneca Annabelle estava contida devolvendo à boneca o poder de animar os letais e aterrorizantes objetos contidos na Sala.' , 106, '26-06-2019')
+
 
 Insert into Usuarios(NomeUsuario,Email,Senha,CPF,IdPermissao)
 	Values
@@ -40,3 +52,13 @@ Insert into Usuarios(NomeUsuario,Email,Senha,CPF,IdPermissao)
 		,('Cassiana' , 'Cassiana@email.com' , '123456',85728091555,2) 
 		,('Helena' , 'Helena@email.com' , '123456',68453044597,1)
 		,('Roberto' , 'Rob@email.com' , '3110',68114610980,1)
+
+
+Insert into Favoritos (IdUsuario,IdLancamento)
+	Values	(2,7)
+			,(2,9)
+			,(3,5)
+			,(3,4);
+
+
+			

@@ -4,7 +4,7 @@ Use M_OpFlix
 
 CREATE TABLE Formatos (
 	IdFormato		TINYINT PRIMARY KEY IDENTITY NOT NULL
-	,NomeFormato			VARCHAR (255) NOT NULL UNIQUE
+	,NomeFormato	VARCHAR (255) NOT NULL UNIQUE
 );
 
 CREATE TABLE Categorias (
@@ -33,7 +33,13 @@ CREATE TABLE Usuarios (
 	,Email			VARCHAR (255) UNIQUE NOT NULL
 	,Senha			VARCHAR (255) NOT NULL
 	,CPF			BIGINT	UNIQUE NOT NULL
-	,IdPermisssao	TINYINT	FOREIGN KEY REFERENCES Permissoes (IdPermissao)
+	,IdPermissao	TINYINT	FOREIGN KEY REFERENCES Permissoes (IdPermissao)
 	,DataDeCadastro	DATETIME NOT NULL default GETDATE()
 );
+
+CREATE TABLE Favoritos(
+	IdUsuario INT FOREIGN KEY REFERENCES Usuarios(IdUsuario)
+	,IdLancamento INT FOREIGN KEY REFERENCES Lancamentos(IdLancamento)
+
+)
 
