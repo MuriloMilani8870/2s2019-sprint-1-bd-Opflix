@@ -80,6 +80,15 @@ Insert into Transmissao(IdLancamento, IdVeiculo)
 	Values	(3,1)
 			,(3,4)
 
+Delete From Lancamentos
+Where IdLancamento = 13
+
+Delete From Lancamentos
+Where IdLancamento = 1
+
+Delete From Lancamentos
+Where IdLancamento = 2
+
 
 Update Usuarios
 Set IdPermissao = 2

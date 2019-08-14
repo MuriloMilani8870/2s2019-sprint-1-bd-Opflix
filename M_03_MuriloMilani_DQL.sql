@@ -14,9 +14,31 @@ Select * from Favoritos
 
 Select * from Permissoes
 
+Select * From Veiculos
+
+Select * From Transmissao
+
 
 SELECT COUNT(IdUsuario)
 FROM Usuarios;
+
+
+CREATE PROCEDURE BuscaLinhas
+@QuantidadesTuplas VARCHAR(200)
+AS 
+SELECT COUNT(*)
+FROM Lancamentos
+WHERE IdCategoria = 1 
+
+EXECUTE BuscaLinhas '1';
+DROP PROCEDURE BuscaLinhas;
+
+Select IdCategoria, Titulo from Lancamentos order by IdCategoria asc;
+
+
+
+
+
 
 Select IdHabilidade from Lancamentos order by IdHabilidade asc;
 
@@ -62,5 +84,5 @@ full join ClasseHabilidade
 on Categorias.IdClasse = ClasseHabilidade.IdClasse
 full join Lancamentos
 on ClasseHabilidade.IdHabilidade = Lancamentos.IdHabilidade
-
+///
 

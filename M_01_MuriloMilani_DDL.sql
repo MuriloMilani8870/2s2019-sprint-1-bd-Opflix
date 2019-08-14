@@ -58,12 +58,3 @@ CREATE TABLE Transmissao(
 Create View vwTransmissão as
 Select 
 
-
-CREATE VIEW vwProdutos AS
-SELECT IdProduto AS Código,
-       Nome AS Produto,
-       Fabricante,
-       Quantidade,
-       VlUnitario AS [ValorUnitario],
-       Tipo
-FROM Produtos
