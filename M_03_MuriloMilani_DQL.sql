@@ -35,11 +35,22 @@ DROP PROCEDURE BuscaLinhas;
 
 Select IdCategoria, Titulo from Lancamentos order by IdCategoria asc;
 
+CREATE PROCEDURE BuscaFilme
+@QuantidadesTuplas VARCHAR(200)
+AS 
+SELECT COUNT(*)
+FROM Categorias
+WHERE NomeCategoria = 'a%' 
+
+select DATEDIFF (DAY , GETDATE() , '15/08/2020')
+
+EXECUTE BuscaFilme 'A%';
+DROP PROCEDURE BuscaFilme;
 
 
 
 
-
+/*
 Select IdHabilidade from Lancamentos order by IdHabilidade asc;
 
 Select * from TipoLancamentos
@@ -84,5 +95,4 @@ full join ClasseHabilidade
 on Categorias.IdClasse = ClasseHabilidade.IdClasse
 full join Lancamentos
 on ClasseHabilidade.IdHabilidade = Lancamentos.IdHabilidade
-///
-
+*/

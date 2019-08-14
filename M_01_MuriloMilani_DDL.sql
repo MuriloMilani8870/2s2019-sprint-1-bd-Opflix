@@ -55,6 +55,18 @@ CREATE TABLE Transmissao(
 
 )
 
-Create View vwTransmissão as
-Select 
+Create Table Imagens
+(
+	IdImagem int identity Primary key not null
+	,Vb_Imagem Varbinary (max) not null
+ )
 
+
+
+
+CREATE VIEW vwTransmissao AS
+SELECT Lancamentos.IdCategoria , Transmissao.*, Veiculos.NomeVeiculo
+FROM Transmissao , Lancamentos , Veiculos
+
+
+SELECT * FROM vwTransmissao

@@ -101,3 +101,7 @@ Where IdLancamento = 14
 Update Lancamentos
 Set DataLancamento = '08/07/1994'
 Where IdLancamento = 3
+
+
+ Insert into Imagens
+	Values	
