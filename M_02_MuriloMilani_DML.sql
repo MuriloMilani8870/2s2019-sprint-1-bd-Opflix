@@ -1,6 +1,9 @@
 Use M_OpFlix
 
 Insert Into Categorias (NomeCategoria)
+
+Use M_OpFlix
+
 	Values			('Ação')
 					,('Aventura')
 					,('Comédia')
@@ -60,5 +63,32 @@ Insert into Favoritos (IdUsuario,IdLancamento)
 			,(3,5)
 			,(3,4);
 
+Insert into Lancamentos(Titulo, IdCategoria , IdFormato, Sinopse, Duracao, DataLancamento)
+Values ('Deuses Americanos', 11, 2, 'A série é focada em Shadow Moon, um homem que cumpre três anos de prisão. Faltando poucos dias até o fim de sua sentença, Shadow acaba sendo liberado inesperadamente depois que sua amada esposa, Laura, é morta. Posteriormente, Shadow encontra-se ao lado de um homem chamado Wednesday, que lhe oferece um emprego. Em primeira instância, Wednesday parece ser nada mais que um trapaceiro que precisa de Shadow como guarda-costas. Wednesday está trilhando seu caminho pelos EUA, reunindo todos os velhos deuses, que agora se incorporaram na vida americana, para enfrentar os novos deuses, incluindo os relacionados à mídia e tecnologia, que estão se fortalecendo.' ,55,'30-04-2017' )
 
+Insert into Lancamentos(Titulo, IdCategoria , IdFormato, Sinopse, Duracao, DataLancamento)
+Values ('LA CASA DE PAPEL 3 Temp', 1, 2, 'Após conseguirem roubar mais de 1 bilhão de euros, os envolvidos no assalto passam a ser procurados pelo país. Enquanto isso, o Professor está escondido em Palawan, nas Filipinas, onde vive recluso e despreocupado, como se nada tivesse acontecido.',47 ,'19-07-2019')
+
+Insert into Veiculos(NomeVeiculo)
+	Values	('Cinema')
+			,('Netflix')
+			,('Amazon')
+			,('VHS')
+
+
+Insert into Transmissao(IdLancamento, IdVeiculo)
+	Values	(3,1)
+		,(3,4)
+
+
+Update Usuarios
+Set IdPermissao = 2
+Where IdUsuario = 4
+
+Update Lancamentos
+Set Titulo = 'La Casa De Papel - 3º Temporada'
+Where IdLancamento = 14
 			
+Update Lancamentos
+Set DataLancamento = '08/07/1994'
+Where IdLancamento = 3
