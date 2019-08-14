@@ -43,3 +43,27 @@ CREATE TABLE Favoritos(
 
 )
 
+CREATE TABLE Veiculos(
+	IdVeiculo INT identity primary key not null
+	,NomeVeiculo Varchar(255) not null
+
+)
+
+CREATE TABLE Transmissao(
+	IdLancamento INT FOREIGN KEY REFERENCES Lancamentos(IdLancamento)
+	,IdVeiculo INT FOREIGN KEY REFERENCES Veiculos(IdVeiculo)
+
+)
+
+Create View vwTransmissão as
+Select 
+
+
+CREATE VIEW vwProdutos AS
+SELECT IdProduto AS Código,
+       Nome AS Produto,
+       Fabricante,
+       Quantidade,
+       VlUnitario AS [ValorUnitario],
+       Tipo
+FROM Produtos
