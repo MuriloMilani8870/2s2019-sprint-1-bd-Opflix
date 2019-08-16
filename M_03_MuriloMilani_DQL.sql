@@ -42,10 +42,11 @@ SELECT COUNT(*)
 FROM Categorias
 WHERE NomeCategoria = 'a%' 
 
-select DATEDIFF (DAY , GETDATE() , '15/08/2020')
 
-EXECUTE BuscaFilme 'A%';
+EXECUTE BuscaFilme 'C%';
 DROP PROCEDURE BuscaFilme;
+
+select DATEDIFF (DAY , GETDATE() , '15/08/2020')
 
 
 
