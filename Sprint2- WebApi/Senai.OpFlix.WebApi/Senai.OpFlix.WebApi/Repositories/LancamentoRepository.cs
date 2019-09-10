@@ -17,7 +17,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         {
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                return ctx.Lancamentos.ToList();
+                return ctx.Lancamentos.OrderBy(x=>x.IdLancamento).ToList();
             }
         }
 
@@ -72,7 +72,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         /// Método para encontrar um Lancamento pelo seu ID
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Um Lancamento buscado pelo ID </returns>
         public Lancamentos BuscarPorId(int id)
         {
             using (OpFlixContext ctx = new OpFlixContext())

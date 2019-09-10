@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Senai.OpFlix.WebApi.Repositories
 {
-    public class VeiculosRepository
+    public class VeiculoRepository
     {
     }
 }
