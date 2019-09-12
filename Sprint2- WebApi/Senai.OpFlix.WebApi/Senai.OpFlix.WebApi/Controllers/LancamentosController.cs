@@ -13,8 +13,8 @@ namespace Senai.OpFlix.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [Produces("application/json")]
+    [Authorize]
     [ApiController]
-    [Authorize(Roles = "ADMINISTRADOR")]
     public class LancamentosController : ControllerBase
     {
         private ILancamentoRepository LancamentoRepository { get; set; }
@@ -30,7 +30,7 @@ namespace Senai.OpFlix.WebApi.Controllers
             return Ok(LancamentoRepository.Listar());
         }
 
-        
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPost]
         public IActionResult Cadastrar(Lancamentos lancamento)
         {
@@ -45,7 +45,7 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
-        
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPut("{id}")]
         public IActionResult Atualizar(Lancamentos lancamento, int id)
         {
@@ -66,7 +66,7 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
-       
+        [Authorize(Roles = "ADMINISTRADOR")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
