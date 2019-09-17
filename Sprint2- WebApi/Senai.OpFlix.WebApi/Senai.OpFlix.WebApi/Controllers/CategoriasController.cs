@@ -24,13 +24,21 @@ namespace Senai.OpFlix.WebApi.Controllers
             CategoriaRepository = new CategoriaRepository();
         }
 
+        /// <summary>
+        /// Método para listar as Categorias
+        /// </summary>
+        /// <returns>Lista de Categorias</returns>
         [HttpGet]
         public IActionResult Listar()
         {
             return Ok(CategoriaRepository.Listar());
         }
 
-
+        /// <summary>
+        /// Método para cadastrar novas Categorias
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns>Categoria cadastrada</returns>
         [HttpPost]
         public IActionResult Cadastrar(Categorias categoria)
         {
@@ -45,7 +53,11 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Método que altera algum dado de uma categoria
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns>Categoria atualizada</returns>
         [HttpPut("{id}")]
         public IActionResult Atualizar(Categorias categoria, int id)
         {
@@ -65,7 +77,5 @@ namespace Senai.OpFlix.WebApi.Controllers
                 return BadRequest();
             }
         }
-
-
     }
 }

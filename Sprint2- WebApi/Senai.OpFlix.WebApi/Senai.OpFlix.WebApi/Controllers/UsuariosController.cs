@@ -23,6 +23,11 @@ namespace Senai.OpFlix.WebApi.Controllers
             UsuarioRepository = new UsuarioRepository();
         }
 
+        /// <summary>
+        /// Método para Admins cadastrar outros usuários da plataforma
+        /// </summary>
+        /// <param name="usuario">Informações do Usuario</param>
+        /// <returns>Usuario Cadastrado</returns>
         [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPost("CadastroAdmin")]
         public IActionResult CadastrarAdmin(Usuarios usuario)
@@ -38,7 +43,11 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Método de cadastro público
+        /// </summary>
+        /// <param name="usuario">Informações do Usuario</param>
+        /// <returns>Usuario Cadastrado com a permissão "Cliente"</returns>
         [HttpPost]
         public IActionResult Cadastrar(Usuarios usuario)
         {

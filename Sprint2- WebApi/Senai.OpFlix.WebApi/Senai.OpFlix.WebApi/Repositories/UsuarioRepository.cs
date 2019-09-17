@@ -10,6 +10,11 @@ namespace Senai.OpFlix.WebApi.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        /// <summary>
+        /// Método que realiza uma busca de Email e Senha para efetuar Login
+        /// </summary>
+        /// <param name="login">Informações do Login</param>
+        /// <returns>Usuario Buscado</returns>
         public Usuarios BuscarPorEmailESenha(LoginViewModel login)
         {
             using (OpFlixContext ctx = new OpFlixContext())
@@ -19,6 +24,10 @@ namespace Senai.OpFlix.WebApi.Repositories
             }
         }
 
+        /// <summary>
+        /// Método para Admins cadastrar outros usuários da plataforma
+        /// </summary>
+        /// <param name="usuario">Informações do Usuario</param>
         public void CadastrarAdmin(Usuarios usuario)
         {
             using (OpFlixContext ctx = new OpFlixContext())
@@ -28,6 +37,10 @@ namespace Senai.OpFlix.WebApi.Repositories
             }
         }
 
+        /// <summary>
+        /// Método de cadastro público
+        /// </summary>
+        /// <param name="usuario">Informações do Usuario</param>
         public void Cadastrar(Usuarios usuario)
         {
             using (OpFlixContext ctx = new OpFlixContext())

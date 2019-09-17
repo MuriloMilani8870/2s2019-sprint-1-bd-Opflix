@@ -24,12 +24,22 @@ namespace Senai.OpFlix.WebApi.Controllers
             LancamentoRepository = new LancamentoRepository();
         }
 
+        /// <summary>
+        /// Lista todos os lançamentos.
+        /// </summary>
+        /// <returns>lista de lançamentos.</returns>
         [HttpGet]
         public IActionResult Listar()
         {
             return Ok(LancamentoRepository.Listar());
         }
 
+
+        /// <summary>
+        /// Cadastra um lançamento.
+        /// </summary>
+        /// <param name="lancamento">informações do lançamento.</param>
+        /// <returns>Lançamento cadastrado</returns>
         [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPost]
         public IActionResult Cadastrar(Lancamentos lancamento)
@@ -45,6 +55,12 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza algum dado de um determinado Lançamento
+        /// </summary>
+        /// <param name="lancamento">Lançamento</param>
+        /// <param name="id">Id do Lançamento</param>
+        /// <returns>Lançamento atualizado</returns>
         [Authorize(Roles = "ADMINISTRADOR")]
         [HttpPut("{id}")]
         public IActionResult Atualizar(Lancamentos lancamento, int id)
@@ -66,6 +82,11 @@ namespace Senai.OpFlix.WebApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Método que deleta um determinado Lançamento
+        /// </summary>
+        /// <param name="id">Id do Lançamento</param>
+        /// <returns>Lançamento deletado</returns>
         [Authorize(Roles = "ADMINISTRADOR")]
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)

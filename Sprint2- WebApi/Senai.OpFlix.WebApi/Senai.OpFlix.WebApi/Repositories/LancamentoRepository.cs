@@ -55,7 +55,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         }
 
         /// <summary>
-        /// Método que deleta um lancamentos específico
+        /// Método que deleta um lancamento específico
         /// </summary>
         /// <param name="id"></param>
         public void Deletar(int id)

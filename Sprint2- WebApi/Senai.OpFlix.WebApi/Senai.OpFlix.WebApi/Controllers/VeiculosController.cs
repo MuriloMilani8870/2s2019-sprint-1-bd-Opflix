@@ -20,9 +20,14 @@ namespace Senai.OpFlix.WebApi.Controllers
 
         public VeiculosController()
         {
-            VeiculosRepository = new VeiculosRepository();
+            VeiculosRepository = new VeiculoRepository();
         }
 
+        /// <summary>
+        /// Cadastra um Veiculo.
+        /// </summary>
+        /// <param name="veiculo">informações do Veiculo.</param>
+        /// <returns>Veiculo cadastrado</returns>
         [HttpPost]
         public IActionResult Cadastrar(Veiculos veiculo)
         {
@@ -30,12 +35,22 @@ namespace Senai.OpFlix.WebApi.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Lista todos os Veiculos.
+        /// </summary>
+        /// <returns>lista de Veiculos.</returns>
         [HttpGet]
         public IActionResult Listar()
         {
             return Ok(VeiculosRepository.Listar());
         }
 
+        /// <summary>
+        /// Atualiza algum dado de um determinado Veiculo
+        /// </summary>
+        /// <param name="veiculo">Veiculo</param>
+        /// <param name="id">Id do Veiculo</param>
+        /// <returns>Veiculo atualizado</returns>
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, Veiculos veiculo)
         {
@@ -51,53 +66,6 @@ namespace Senai.OpFlix.WebApi.Controllers
             catch (Exception ex)
             {
                 return BadRequest(new { mensagem = ex.Message });
-            }
-        }
-    }
-}
-
-namespace Senai.OpFlix.WebApi.Repositories
-{
-    public class VeiculosRepository : IVeiculoRepository
-    {
-        private string StringConexao = "Data Source=.\\SqlExpress; initial catalog=M_OpFlix;User Id=sa;Pwd=132;";
-
-        public void Atualizar(Veiculos veiculo)
-        {
-            using (OpFlixContext ctx = new OpFlixContext())
-            {
-                Veiculos veiculoBuscada = ctx.Veiculos.FirstOrDefault(x => x.IdVeiculo == veiculo.IdVeiculo);
-                veiculoBuscada.NomeVeiculo = veiculo.NomeVeiculo;
-                ctx.Veiculos.Update(veiculoBuscada);
-                ctx.SaveChanges();
-            }
-        }
-
-        public Veiculos BuscarPorId(int IdVeiculo)
-        {
-            using (OpFlixContext ctx = new OpFlixContext())
-            {
-                return ctx.Veiculos.FirstOrDefault(x => x.IdVeiculo == IdVeiculo);
-            }
-        }
-
-        public void Cadastrar(Veiculos veiculo)
-        {
-            string Query = "INSERT INTO Veiculos(NomeVeiculo) VALUES (@veiculo)";
-            using (SqlConnection con = new SqlConnection(StringConexao))
-            {
-                SqlCommand cmd = new SqlCommand(Query, con);
-                cmd.Parameters.AddWithValue("@veiculo", veiculo.NomeVeiculo);
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        public List<Veiculos> Listar()
-        {
-            using (OpFlixContext ctx = new OpFlixContext())
-            {
-                return ctx.Veiculos.OrderBy(x => x.IdVeiculo).ToList();
             }
         }
     }
