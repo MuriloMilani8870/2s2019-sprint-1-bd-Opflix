@@ -1,4 +1,5 @@
-﻿using Senai.OpFlix.WebApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai.OpFlix.WebApi.Domains;
 using Senai.OpFlix.WebApi.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Senai.OpFlix.WebApi.Repositories
         {
             using (OpFlixContext ctx = new OpFlixContext())
             {
-                return ctx.Lancamentos.OrderBy(x=>x.IdLancamento).ToList();
+                return ctx.Lancamentos.OrderBy(x=>x.IdLancamento).Include(x => x.IdCategoriaNavigation).Include(x => x.IdFormatoNavigation).ToList();
             }
         }
 
@@ -78,6 +79,22 @@ namespace Senai.OpFlix.WebApi.Repositories
             using (OpFlixContext ctx = new OpFlixContext())
             {
                 return ctx.Lancamentos.FirstOrDefault(x => x.IdLancamento == id);
+            }
+        }
+
+        public List<Lancamentos> BuscarPorCategoria(int categoria)
+        {
+            using (OpFlixContext ctx = new OpFlixContext())
+            {
+                return ctx.Lancamentos.Where(x => x.IdCategoria == categoria).Include(x => x.IdCategoriaNavigation).Include(x => x.IdFormatoNavigation).ToList();
+            }
+        }
+
+        public List<Lancamentos> BuscarPorData(DateTime data)
+        {
+            using (OpFlixContext ctx = new OpFlixContext())
+            {
+                return ctx.Lancamentos.Where(x => x.DataLancamento == data).ToList();
             }
         }
     }
